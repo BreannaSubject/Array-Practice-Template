@@ -31,7 +31,8 @@ namespace ArrayPractice
             int averageSum = 0;
             int even = 0;
             int three = 0;
-
+            int index = -1;
+            int swap = 0; 
 
             Random randGen = new Random();
 
@@ -61,16 +62,41 @@ namespace ArrayPractice
                 evenOutput.Text = Convert.ToString(even);
                 threeOutput.Text = Convert.ToString(three);
 
+                while (i < array1.Length)
+                {
+                    if (array1[i] == 0)
+                    {
+                        index = i; 
+                    }
+                    break;
+                }
+
+                if (index >= 0)
+                {
+                    zeroOutput.Text = Convert.ToString(index);
+                }
+                else
+                {
+                    zeroOutput.Text = "null";
+                }
+
+
             }
+            
+           
+
+
             for (int i = 0; i < array2.Length; i++)
             {
                 array2[i] = randGen.Next(0, 10);
                 array2Output.Text += Convert.ToString(array2[i]) + " ";
             }
-            //2. Display array 1
-            //3. Display array 2
-            //4. Display array 1 in reverse order
-           for (int i = 0; i < array1.Length; i++)
+          
+              
+                //2. Display array 1
+                //3. Display array 2
+                //4. Display array 1 in reverse order
+                for (int i = 0; i < array1.Length; i++)
             {
                 Array.Reverse(array1);
                 reverseOutput.Text += Convert.ToString(array1[i]) + " ";
@@ -92,6 +118,25 @@ namespace ArrayPractice
                 }
                 matchOutput.Text = Convert.ToString(samePosition);
             }
+
+            for (int i = 0; i < array1.Length; i++)
+            {
+                swap2Output.Text += Convert.ToString(array1[i]) + " ";
+            }
+
+            for (int i = 0; i < array1.Length; i++)
+            {
+                array1[i] = array2[i];
+                swap1Output.Text += Convert.ToString(array2[i]) + " ";
+            }
+
+           
+
+            
+
+
+
+
             //5. Determine and display the largest value in array 1          
             //6.Determine and display the average of all values in array 1
             //7. Determine and display the sum of all even values in array 1
